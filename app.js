@@ -21,8 +21,8 @@ var createNewTaskElement = function (taskString) {
 
   //input (checkbox)
   var checkBox = document.createElement("input");//checkbx
-  //label
-  var label = document.createElement("label");//label
+  //p
+  var p = document.createElement("p");//p
   //input (text)
   var editInput = document.createElement("input");//text
   //button.edit
@@ -32,8 +32,8 @@ var createNewTaskElement = function (taskString) {
   var deleteButton = document.createElement("button");//delete button
   var deleteButtonImg = document.createElement("img");//delete button image
 
-  label.innerText = taskString;
-  label.className = 'task';
+  p.innerText = taskString;
+  p.className = 'task';
 
   //Each elements, needs appending
   checkBox.type = "checkbox";
@@ -51,7 +51,7 @@ var createNewTaskElement = function (taskString) {
 
   //and appending.
   listItem.appendChild(checkBox);
-  listItem.appendChild(label);
+  listItem.appendChild(p);
   listItem.appendChild(editInput);
   listItem.appendChild(editButton);
   listItem.appendChild(deleteButton);
@@ -84,18 +84,18 @@ var editTask = function () {
   var listItem = this.parentNode;
 
   var editInput = listItem.querySelector('input[type=text]');
-  var label = listItem.querySelector("label");
+  var p = listItem.querySelector("p");
   var editBtn = listItem.querySelector(".edit");
   var containsClass = listItem.classList.contains("edit-mode");
   //If class of the parent is .edit-mode
   if (containsClass) {
 
     //switch to .edit-mode
-    //label becomes the inputs value.
-    label.innerText = editInput.value;
+    //p becomes the inputs value.
+    p.innerText = editInput.value;
     editBtn.innerText = "Edit";
   } else {
-    editInput.value = label.innerText;
+    editInput.value = p.innerText;
     editBtn.innerText = "Save";
   }
 
